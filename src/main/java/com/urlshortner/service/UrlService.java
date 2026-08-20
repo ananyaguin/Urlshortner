@@ -5,6 +5,7 @@ import com.urlshortner.dto.UrlResponse;
 import com.urlshortner.entity.UrlMapping;
 import com.urlshortner.repository.UrlRepository;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.net.URI;
@@ -15,6 +16,9 @@ import java.util.Random;
 public class UrlService {
 
     private final UrlRepository urlRepository;
+
+    @Value("${app.base-url}")
+    private String baseUrl;
 
     private final Random random = new Random();
 
@@ -75,8 +79,8 @@ public class UrlService {
 
         urlRepository.save(urlMapping);
 
-        String shortUrl =
-                "http://localhost:8080/" + shortCode;
+        // SHORT URL
+        String shortUrl = baseUrl + "/" + shortCode;
 
         return new UrlResponse(
                 originalUrl,
@@ -151,6 +155,3 @@ public class UrlService {
         }
     }
 }
-
-
-
