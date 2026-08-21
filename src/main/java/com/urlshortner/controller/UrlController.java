@@ -15,7 +15,12 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(
+        origins = {
+                "http://localhost:5173",
+                "https://shortly-frontend-o5t6ljlsn-ananyaguins-projects.vercel.app"
+        }
+)
 public class UrlController {
 
     private final UrlService urlService;
