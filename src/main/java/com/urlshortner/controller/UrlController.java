@@ -18,9 +18,10 @@ import java.util.List;
 @CrossOrigin(
         origins = {
                 "http://localhost:5173",
-                "https://shortly-frontend-o5t6ljlsn-ananyaguins-projects.vercel.app"
+                "https://shortly-frontend-gold.vercel.app"
         }
 )
+
 public class UrlController {
 
     private final UrlService urlService;
